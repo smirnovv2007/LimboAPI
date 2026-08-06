@@ -569,7 +569,11 @@ public class LimboImpl implements Limbo {
       }
     } else {
       sessionHandler.setJoinGameTriggered(true);
-      connection.delayedWrite(this.joinPackets);
+      if (connection.getType() == ConnectionTypes.LEGACY_FORGE) {
+          connection.delayedWrite(this.safeRejoinPackets);
+      } else {
+          connection.delayedWrite(this.joinPackets);
+      }
     }
 
     MinecraftPacket playerInfoPacket;
