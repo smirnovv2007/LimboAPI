@@ -570,9 +570,9 @@ public class LimboImpl implements Limbo {
     } else {
       sessionHandler.setJoinGameTriggered(true);
       if (connection.getType() == ConnectionTypes.LEGACY_FORGE) {
-          connection.delayedWrite(this.safeRejoinPackets);
+        connection.delayedWrite(this.safeRejoinPackets);
       } else {
-          connection.delayedWrite(this.joinPackets);
+        connection.delayedWrite(this.joinPackets);
       }
     }
 
